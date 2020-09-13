@@ -1,41 +1,31 @@
 <template>
   <div class="container">
-    <div>
+    <Navigation></Navigation>
+    <div class="">
       <Logo />
       <h1 class="title">
-        testnuxtjs
+        Test Nuxt 
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Navigation from '../components/Navigation'
+
+export default {
+  components: {
+    Navigation,
+  },
+}
 </script>
 
 <style>
 .container {
-  margin: 0 auto;
+  margin: 5%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -69,5 +59,8 @@ export default {}
 
 .links {
   padding-top: 15px;
+}
+.liens {
+  font-size: 1.5rem;
 }
 </style>
