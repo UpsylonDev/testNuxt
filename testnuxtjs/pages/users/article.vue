@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <nuxt-link to="/users/articles" class="liens">Articles</nuxt-link>
+        <nuxt-link to="/users/articles" class="liens">Article</nuxt-link>
       <nuxt-link to="/users" class="liens">Users </nuxt-link>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt itaque
             laborum praesentium vel dignissimos eveniet, molestias sit? A aliquid itaque,
