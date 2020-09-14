@@ -1,6 +1,10 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 #Deploiement HEROKU
-
+config :
+donner version de node dans package.json  
+"engines": {
+    "node": "12.16.3"
+  },
 pour se connecter Heroku login
 
 Pour créer une app Heroku create
