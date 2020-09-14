@@ -1,0 +1,14 @@
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#Deploiement HEROKU
+
+pour se connecter Heroku login
+
+Pour créer une app Heroku create
+
+poster les fichier : Git push heroku master
+
+pour voir : heroku open 
+
+Annuler / stopper un deploiement - Heroku kill // + mettre le nom de l’application
+
+proc file and preconfigured package.jon for deploy on Heroku server.
