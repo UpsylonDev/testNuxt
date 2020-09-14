@@ -18,7 +18,7 @@ import Nav from '../components/Navigation'
     }
 </script>
 
-<style>
+<style lang="scss">
 .enfant {
     padding: 30px;
     margin: 20px;

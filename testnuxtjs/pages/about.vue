@@ -17,7 +17,7 @@
         },
     }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .fond{
     width: 80%;
     margin-left: 20px;
