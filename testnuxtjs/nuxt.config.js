@@ -31,6 +31,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    { src: '~/plugins/uikit', ssr: false }
   ],
   /*
   ** Auto import components
@@ -59,5 +60,14 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  // pour uikit
+  loaders:{
+      vue: {
+        transformAssetUrls: {
+          img: "data-src",
+          div: "data-src"
+    }
+    }
   }
 }
