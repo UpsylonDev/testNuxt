@@ -14,6 +14,7 @@ import Nav from '../components/Navigation'
         components: {
             Nav,
         },
+        layout : 'users'
     }
 </script>
 
