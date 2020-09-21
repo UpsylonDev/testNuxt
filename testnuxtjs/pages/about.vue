@@ -10,10 +10,10 @@
     <button @click="ajoute">Ajouter</button>
     <!-- <button @click="multiplie">Multiplie</button> -->
     <button @click="reset">RESET</button>
-        <p>{{points}}</p>
-        <p>{{prenom}}</p>
-        <p>{{datax2}}</p>
-        <p>Le module compteur :{{ compteur/count}}</p>
+        <!-- <p>{{points}}</p> -->
+        <p>{{nom}}</p>
+        <!-- <p>{{datax2}}</p> -->
+        <!-- <p>Le module compteur :{{ compteur/count}}</p> -->
 
         <span class="uk-margin-small-right" uk-icon="check"></span>
 
@@ -47,15 +47,10 @@
         // ]),
         // créer une copie des states
         computed: {
-            name() {
-                // les valeurs calculées de bases
-            },
             // capie des states ( 3 points pour pouvoir utiliser computed + map ensemble)
-            ...mapState([
-                'points', 'prenom', 'compteur/count'
-            ]
-            
-            ),
+            ...mapState({
+                nom : (state) => state.prenom
+            }),
             //  créer une copie des guetters
             // ...mapGetters([
             //     'datax2'
@@ -70,13 +65,13 @@
         },
         methods: {
             ajoute () {
-                this.$store.commit('increm')
+                this.$store.commit('compteur/INCREMENT')
             },
             // multiplie (counter) {
             //     // this.$store.commit('multipl')
             // },
             reset () {
-                this.$store.commit('reseting')
+                this.$store.commit('compteur/RESET_COUNTER')
             }
         },
     }
