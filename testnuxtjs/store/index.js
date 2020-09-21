@@ -1,24 +1,17 @@
 export const state = () => ({
-    counter: 0,
-    prenom : 'Yann'
+  points: 0,
+  prenom : 'Yann'
 })
-  
+
 export const mutations = {
-    INCREMENT (state) {
-      state.counter++
-    },
-    MULTIPLIE (state) {
-        state.counter = this.getters.datax2 * 2
-    },
-    // mettre en ma pour plus de clarté entre smutations et actions
-    RESET_COUNTER (state) {
-        state.counter = 0
-    }
+  increment (state) {
+    state.counter++
+  }
 }
 
 export const getters = {
-    datax2 (state) {
-      return state.counter * 2
-    }
+  datax2 (state) {
+    return state.points * 2
   }
-  
+
+}

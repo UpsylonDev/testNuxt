@@ -8,11 +8,13 @@
         Mollitia nihil odit ea nulla dicta, nostrum minus soluta maiores, sequi sunt a aliquam ipsa dolore amet ipsam atque at officiis. Quibusdam facilis, suscipit necessitatibus aliquid nisi pariatur ab ipsa?
         Expedita suscipit neque rem temporibus optio distinctio beatae. Dolorem laboriosam accusamus ad ut tempora cum dicta fugiat incidunt consequatur velit provident, quae libero autem veritatis, culpa rerum quaerat. Dolor, repellat?</p>
     <button @click="ajoute">Ajouter</button>
-    <button @click="multiplie">Multiplie</button>
+    <!-- <button @click="multiplie">Multiplie</button> -->
     <button @click="reset">RESET</button>
-        <p>{{counter}}</p>
+        <p>{{points}}</p>
         <p>{{prenom}}</p>
         <p>{{datax2}}</p>
+        <p>Le module compteur :{{ compteur}}</p>
+
         <span class="uk-margin-small-right" uk-icon="check"></span>
 
 <a href="" uk-icon="heart"></a>
@@ -28,7 +30,7 @@
         import Nav from '../components/Navigation'
         // ! Important pour récipérer le store
         // !permet de faire appel au states plus simplement
-        import { mapState, mapGetters } from 'vuex'
+        import { mapState, mapGetters, mapMutations } from 'vuex'
 
     export default {
         components: {
@@ -49,23 +51,35 @@
                 // les valeurs calculées de bases
             },
             // capie des states ( 3 points pour pouvoir utiliser computed + map ensemble)
-            ...mapState([
-            'counter' ,'prenom',
-            ]),
+            ...mapState(
+                {
+                   points  :'points',
+                   prenom : 'prenom',
+                   compteur : 'count'
+
+                }
+            ),
             //  créer une copie des guetters
             ...mapGetters([
                 'datax2'
             ]),
+            ...mapMutations(
+                {
+                    increm : 'compteur/INCREMENT',
+                    // multipl : 'compteur/MULTIPLIE',
+                    reseting : 'compteur/RESET_COUNTER'
+                } 
+            )
         },
         methods: {
             ajoute () {
-                this.$store.commit('INCREMENT')
+                this.$store.commit('increm')
             },
-            multiplie (counter) {
-                this.$store.commit('MULTIPLIE')
-            },
+            // multiplie (counter) {
+            //     // this.$store.commit('multipl')
+            // },
             reset () {
-                this.$store.commit('RESET_COUNTER')
+                this.$store.commit('reseting')
             }
         },
     }
