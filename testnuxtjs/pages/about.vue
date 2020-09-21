@@ -7,14 +7,12 @@
         Eaque, ad? Magni, modi iure temporibus illo tempore similique maiores alias eligendi. Eveniet, minima? Repellat eius, libero, officiis laboriosam ad facere sequi sed, autem quisquam blanditiis fuga rem molestias aspernatur.
         Mollitia nihil odit ea nulla dicta, nostrum minus soluta maiores, sequi sunt a aliquam ipsa dolore amet ipsam atque at officiis. Quibusdam facilis, suscipit necessitatibus aliquid nisi pariatur ab ipsa?
         Expedita suscipit neque rem temporibus optio distinctio beatae. Dolorem laboriosam accusamus ad ut tempora cum dicta fugiat incidunt consequatur velit provident, quae libero autem veritatis, culpa rerum quaerat. Dolor, repellat?</p>
-<<<<<<< HEAD
     <button @click="ajoute">Ajouter</button>
     <button @click="multiplie">Multiplie</button>
     <button @click="reset">RESET</button>
         <p>{{counter}}</p>
         <p>{{prenom}}</p>
         <p>{{datax2}}</p>
-=======
         <span class="uk-margin-small-right" uk-icon="check"></span>
 
 <a href="" uk-icon="heart"></a>
@@ -23,7 +21,6 @@
             <button type="button">Un bouton drop</button>
         <div uk-drop="mode: hover">Autre ererteteter Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio aperiam delectus, ad repudiandae molestiae nemo necessitatibus odio iste quos exercitationem praesentium explicabo corporis aliquam labore minima suscipit consectetur. Quia, at!</div>
 </div>
->>>>>>> 0ccafa58c99a43faded87c265e558f83cf8d4530
     </div>
 </template>
 
