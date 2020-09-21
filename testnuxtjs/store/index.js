@@ -4,10 +4,10 @@ export const state = () => ({
 })
   
 export const mutations = {
-    increment (state) {
+    INCREMENT (state) {
       state.counter++
     },
-    multiplie (state) {
+    MULTIPLIE (state) {
         state.counter = this.getters.datax2 * 2
     },
     // mettre en ma pour plus de clarté entre smutations et actions

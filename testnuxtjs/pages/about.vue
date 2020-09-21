@@ -27,7 +27,7 @@
 <script>
         import Nav from '../components/Navigation'
         // ! Important pour récipérer le store
-        // permet de faire appel au state plus simplement
+        // !permet de faire appel au states plus simplement
         import { mapState, mapGetters } from 'vuex'
 
     export default {
@@ -59,10 +59,10 @@
         },
         methods: {
             ajoute () {
-                this.$store.commit('increment')
+                this.$store.commit('INCREMENT')
             },
             multiplie (counter) {
-                this.$store.commit('multiplie')
+                this.$store.commit('MULTIPLIE')
             },
             reset () {
                 this.$store.commit('RESET_COUNTER')
