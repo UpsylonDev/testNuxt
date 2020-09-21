@@ -13,7 +13,7 @@
         <p>{{points}}</p>
         <p>{{prenom}}</p>
         <p>{{datax2}}</p>
-        <p>Le module compteur :{{ compteur}}</p>
+        <p>Le module compteur :{{ compteur/count}}</p>
 
         <span class="uk-margin-small-right" uk-icon="check"></span>
 
@@ -51,18 +51,15 @@
                 // les valeurs calculées de bases
             },
             // capie des states ( 3 points pour pouvoir utiliser computed + map ensemble)
-            ...mapState(
-                {
-                   points  :'points',
-                   prenom : 'prenom',
-                   compteur : 'count'
-
-                }
+            ...mapState([
+                'points', 'prenom', 'compteur/count'
+            ]
+            
             ),
             //  créer une copie des guetters
-            ...mapGetters([
-                'datax2'
-            ]),
+            // ...mapGetters([
+            //     'datax2'
+            // ]),
             ...mapMutations(
                 {
                     increm : 'compteur/INCREMENT',
