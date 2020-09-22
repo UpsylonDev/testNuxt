@@ -1,9 +1,10 @@
-export const state = () => ({
-  count: 111
+export const state = (states) => ({
+  count: 111,
+  nameCompteur : 'Compteur no 1 '
 })
 
 export const getters = {
-    get(state) {
+    get(state ) {
         return state.count
     },
     mutiply(state) {
@@ -17,12 +18,12 @@ export const getters = {
 
 export const mutations = {
     ADD(state, value) {
-        state.count = value
+        state.count +=  value
     },
     RESET(state) {
         state.count = 0
     },
     INCREMENT(state) {
         state.count++
-    }
+    },
 }

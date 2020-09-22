@@ -4,45 +4,25 @@
         <Nav></Nav>
         <h1>Test page about
         </h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum quis
-            consequuntur officia ad labore? Ducimus repudiandae reprehenderit laborum
-            accusantium iure beatae, maiores accusamus reiciendis illo facilis, ullam
-            exercitationem, hic debitis? Eaque, ad? Magni, modi iure temporibus illo tempore
-            similique maiores alias eligendi. Eveniet, minima? Repellat eius, libero,
-            officiis laboriosam ad facere sequi sed, autem quisquam blanditiis fuga rem
-            molestias aspernatur. Mollitia nihil odit ea nulla dicta, nostrum minus soluta
-            maiores, sequi sunt a aliquam ipsa dolore amet ipsam atque at officiis.
-            Quibusdam facilis, suscipit necessitatibus aliquid nisi pariatur ab ipsa?
-            Expedita suscipit neque rem temporibus optio distinctio beatae. Dolorem
-            laboriosam accusamus ad ut tempora cum dicta fugiat incidunt consequatur velit
-            provident, quae libero autem veritatis, culpa rerum quaerat. Dolor, repellat?</p>
-        <button @click="changeAll">CHANGE BASE
-        </button>
-        <button @click="reset">RESET
-        </button>
-        <button @click="ajoute">INCREMENT
-        </button>
-        <button @click="changeVal">CHANGE VAL
-        </button>
-        <!-- <button @click="multiplie">Multiplie</button> -->
-        <!-- <button @click="reset">RESET</button> -->
-        <!-- <p>{{points}}</p> -->
-        <!-- <p>{{ nom }}</p> -->
-        <p>
-            le compteur depuis son state :
-            {{ count }}</p>
-        <p>
-            le compteur depuis getters :
-            {{ compteur }}</p>
-        <p>
-            Double compteur :
-            {{ doubleCompteur }}</p>
-        <p>mlanges :
-            {{melanges}}</p>
-        <p> id utilisateur  : {{ getId}}</p>
-        <p>valeur :
-            {{ val }}</p>
-            <p>id et nom : {{idName}}</p>
+        <p> Un titre du store (state) :  {{ titre }} </p>
+        <p>Compteur depuis le (state) de compteur :  {{ count}}</p>
+        <p>Compteur depuis le (getter) de compteur :  {{ compteur}}</p>
+        <p>{{compose}}</p>
+        <p>compteur multiplier x 2 : {{ multiplier}}</p>
+        <button @click="reset" class="uk-close-large" type="button" uk-close>RESET</button>
+        <button @click="changeCompt" class="uk-button" type="button" >CHANGER COMPTEUR</button>
+        <button @click="add" class="uk-button" type="button" >INCREMENT</button>
+        <input ref="valIncrement" type="text" value="1">
+        
+        <select v-model="valeurSelected" @change="valeurChoisie"  id="monselect">
+            <option  value="0">00 h </option> 
+            <option value="13" >13 h </option> 
+            <option value="14" selected>14 h</option>
+            <option value="15">15 h</option>
+            <option value="...">...</option>
+        </select>
+        <p>{{message}}</p>
+        
 
     </div>
 </div>
@@ -58,23 +38,24 @@
         components: {
             Nav,
         },
+        data() {
+            return {
+                valeurSelected: '0',
+                message : ""
+            }
+        },
         computed: {
-            // texte() {
-            //     return  this.$store.state.compteur.text
-            // },
+            titre() {
+                return  this.$store.state.titre
+            },
             count() {
                 return this.$store.state.compteur.count
             },
-            // recuperation des states via les getters
+            // recuperation de tous les getters
             ...mapGetters ({
                 compteur :'compteur/get',
-                val : 'getValeur',
-                doubleCompteur :'compteur/mutiply',
-                melanges : 'compteur/getTotal',
-                idName : 'user/getIdAndName',
-                getId : 'user/getId',
-                // valeurCompteur : 'compteur/get',
-                // total : 'compteur/countdouble',
+                compose : 'compose',
+                multiplier : 'compteur/mutiply'
 
             }),
         },
@@ -90,13 +71,29 @@
             /**
              * pour les mutations paramètrées 
              */
-            changeAll() {
-                this.value = 1
-                this.$store.commit('compteur/ADD', this.value)
+            add() {
+                this.value = this.$refs.valIncrement.value
+   
+                if ( isNaN(this.value)  || (this.value  == "") ) {
+                    this.message = "pas un nombre "
+                    setTimeout(() => {
+                    this.message = ""
+                        
+                    }, 3000);
+                    
+                } else {
+                    this.$store.commit('compteur/ADD', parseInt(this.value) )
+                    
+                }
+
             },
-            ajoute() {
-                this.$store.commit('compteur/INCREMENT')
-            }
+            valeurChoisie () {
+                console.log(this.valeurSelected)
+                
+            },
+            changeCompt () {
+                this.$store.commit('CHANGE_COMPTEUR')
+            },
   
         },
 }

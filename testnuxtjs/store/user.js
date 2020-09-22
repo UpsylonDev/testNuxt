@@ -4,8 +4,10 @@ export const state = () => ({
 })
 
 export const getters = {
-    getIdAndName(state) {
-        return  `  id : ${state.idUser}  Nom : ${state.name}` 
+    getIdAndName(state, $getters) {
+        // `  id : ${state.idUser}  Nom : ${state.name}` 
+        // return  console.log($getters)
+         
     },
     getId (state) {
         return state.idUser
