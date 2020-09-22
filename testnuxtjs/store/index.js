@@ -6,8 +6,9 @@ export const state = () => ({
 })
 
 export const mutations = () => ({
-
+    
 })
 /**
- * accès : 
+ * accès : dans les computed
+ * 
  */

@@ -7,9 +7,9 @@
         Eaque, ad? Magni, modi iure temporibus illo tempore similique maiores alias eligendi. Eveniet, minima? Repellat eius, libero, officiis laboriosam ad facere sequi sed, autem quisquam blanditiis fuga rem molestias aspernatur.
         Mollitia nihil odit ea nulla dicta, nostrum minus soluta maiores, sequi sunt a aliquam ipsa dolore amet ipsam atque at officiis. Quibusdam facilis, suscipit necessitatibus aliquid nisi pariatur ab ipsa?
         Expedita suscipit neque rem temporibus optio distinctio beatae. Dolorem laboriosam accusamus ad ut tempora cum dicta fugiat incidunt consequatur velit provident, quae libero autem veritatis, culpa rerum quaerat. Dolor, repellat?</p>
-    <button @click="ajoute">Ajouter</button>
+    <button @click="changeAll">CHANGE BASE </button>
     <!-- <button @click="multiplie">Multiplie</button> -->
-    <button @click="reset">RESET</button>
+    <!-- <button @click="reset">RESET</button> -->
         <!-- <p>{{points}}</p> -->
         <!-- <p>{{ nom }}</p> -->
         <p> le compteur depuis son state   : {{ count }}</p>
@@ -58,17 +58,12 @@
             }),
         },
         methods: {
-            ajoute () {
-                // this.$store.commit('compteur/INCREMENT')
-            },
-            // multiplie (counter) {
-            //     // this.$store.commit('multipl')
-            // },
-            reset () {
-                // this.$store.commit('compteur/RESET_COUNTER')
-            }
+            ...mapMutations({
+                changeAll : 'CHANGE'
+            })
+  
         },
-    }
+}
 </script>
 <style lang="scss" scoped>
 .fond{
