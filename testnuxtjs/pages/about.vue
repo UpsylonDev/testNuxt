@@ -39,8 +39,10 @@
             {{ doubleCompteur }}</p>
         <p>mlanges :
             {{melanges}}</p>
+        <p> id utilisateur  : {{ getId}}</p>
         <p>valeur :
             {{ val }}</p>
+            <p>id et nom : {{idName}}</p>
 
     </div>
 </div>
@@ -68,7 +70,9 @@
                 compteur :'compteur/get',
                 val : 'getValeur',
                 doubleCompteur :'compteur/mutiply',
-                melanges : 'compteur/getTotal'
+                melanges : 'compteur/getTotal',
+                idName : 'user/getIdAndName',
+                getId : 'user/getId',
                 // valeurCompteur : 'compteur/get',
                 // total : 'compteur/countdouble',
 
