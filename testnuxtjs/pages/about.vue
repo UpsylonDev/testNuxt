@@ -13,9 +13,9 @@
         <!-- <p>{{points}}</p> -->
         <!-- <p>{{ nom }}</p> -->
         <p> le compteur depuis son state   : {{ count }}</p>
-        <p> le compteur depuis getters   : {{ valeurCompteur }}</p>
-        <p> compteur x  2 : {{ total }}</p>
-        <p> texte : {{ texte }}</p>
+        <p> le compteur depuis getters   : {{ compteur }}</p>
+        <!-- <p> compteur x  2 : {{ total }}</p> -->
+        <!-- <p> texte : {{ texte }}</p> -->
         <!-- <p>Le nom : {{ nom }}</p> -->
         <!-- <p>Le om complet : {{ nomcomplet }}</p> -->
         <!-- <p>Le nom tronqué : {{ nomCourt }}</p> -->
@@ -44,22 +44,23 @@
             Nav,
         },
         computed: {
-            texte() {
-                return  this.$store.state.compteur.text
-            },
+            // texte() {
+            //     return  this.$store.state.compteur.text
+            // },
             count() {
                 return this.$store.state.compteur.count
             },
             // recuperation des states via les getters
             ...mapGetters ({
-                valeurCompteur : 'compteur/get',
-                total : 'compteur/countdouble',
+                compteur :'compteur/get'
+                // valeurCompteur : 'compteur/get',
+                // total : 'compteur/countdouble',
 
             }),
         },
         methods: {
             ...mapMutations({
-                changeAll : 'CHANGE'
+                changeAll : 'compteur/add'
             })
   
         },
