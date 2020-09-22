@@ -1,3 +1,4 @@
 export default () => ({
-    count: 124,
+    count : 123,
+    text : 'Un texte ici lorem....'
 })

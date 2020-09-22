@@ -11,7 +11,14 @@
     <!-- <button @click="multiplie">Multiplie</button> -->
     <button @click="reset">RESET</button>
         <!-- <p>{{points}}</p> -->
-        <p>{{nom}}</p>
+        <!-- <p>{{ nom }}</p> -->
+        <p> le compteur depuis son state   : {{ count }}</p>
+        <p> le compteur depuis getters   : {{ valeurCompteur }}</p>
+        <p> compteur x  2 : {{ total }}</p>
+        <p> texte : {{ texte }}</p>
+        <!-- <p>Le nom : {{ nom }}</p> -->
+        <!-- <p>Le om complet : {{ nomcomplet }}</p> -->
+        <!-- <p>Le nom tronqué : {{ nomCourt }}</p> -->
         <!-- <p>{{datax2}}</p> -->
         <!-- <p>Le module compteur :{{ compteur/count}}</p> -->
 
@@ -36,42 +43,29 @@
         components: {
             Nav,
         },
-
-        // permet de récupérer tous les states sans avoi à faire this.$store
-        // ne pas oublier de faire l'import ....
-        /**
-         * faie unspread ...mapState()
-         *  */ 
-        // computed: mapState([
-        //   'counter' ,'prenom'
-        // ]),
-        // créer une copie des states
         computed: {
-            // capie des states ( 3 points pour pouvoir utiliser computed + map ensemble)
-            ...mapState({
-                nom : (state) => state.prenom
+            texte() {
+                return  this.$store.state.compteur.text
+            },
+            count() {
+                return this.$store.state.compteur.count
+            },
+            // recuperation des states via les getters
+            ...mapGetters ({
+                valeurCompteur : 'compteur/get',
+                total : 'compteur/countdouble',
+
             }),
-            //  créer une copie des guetters
-            // ...mapGetters([
-            //     'datax2'
-            // ]),
-            ...mapMutations(
-                {
-                    increm : 'compteur/INCREMENT',
-                    // multipl : 'compteur/MULTIPLIE',
-                    reseting : 'compteur/RESET_COUNTER'
-                } 
-            )
         },
         methods: {
             ajoute () {
-                this.$store.commit('compteur/INCREMENT')
+                // this.$store.commit('compteur/INCREMENT')
             },
             // multiplie (counter) {
             //     // this.$store.commit('multipl')
             // },
             reset () {
-                this.$store.commit('compteur/RESET_COUNTER')
+                // this.$store.commit('compteur/RESET_COUNTER')
             }
         },
     }
