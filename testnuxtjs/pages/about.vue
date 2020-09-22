@@ -1,36 +1,49 @@
 <template>
     <div class="fond">
-        
+
         <Nav></Nav>
-        <h1>Test page about </h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum quis consequuntur officia ad labore? Ducimus repudiandae reprehenderit laborum accusantium iure beatae, maiores accusamus reiciendis illo facilis, ullam exercitationem, hic debitis?
-        Eaque, ad? Magni, modi iure temporibus illo tempore similique maiores alias eligendi. Eveniet, minima? Repellat eius, libero, officiis laboriosam ad facere sequi sed, autem quisquam blanditiis fuga rem molestias aspernatur.
-        Mollitia nihil odit ea nulla dicta, nostrum minus soluta maiores, sequi sunt a aliquam ipsa dolore amet ipsam atque at officiis. Quibusdam facilis, suscipit necessitatibus aliquid nisi pariatur ab ipsa?
-        Expedita suscipit neque rem temporibus optio distinctio beatae. Dolorem laboriosam accusamus ad ut tempora cum dicta fugiat incidunt consequatur velit provident, quae libero autem veritatis, culpa rerum quaerat. Dolor, repellat?</p>
-    <button @click="changeAll">CHANGE BASE </button>
-    <!-- <button @click="multiplie">Multiplie</button> -->
-    <!-- <button @click="reset">RESET</button> -->
+        <h1>Test page about
+        </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum quis
+            consequuntur officia ad labore? Ducimus repudiandae reprehenderit laborum
+            accusantium iure beatae, maiores accusamus reiciendis illo facilis, ullam
+            exercitationem, hic debitis? Eaque, ad? Magni, modi iure temporibus illo tempore
+            similique maiores alias eligendi. Eveniet, minima? Repellat eius, libero,
+            officiis laboriosam ad facere sequi sed, autem quisquam blanditiis fuga rem
+            molestias aspernatur. Mollitia nihil odit ea nulla dicta, nostrum minus soluta
+            maiores, sequi sunt a aliquam ipsa dolore amet ipsam atque at officiis.
+            Quibusdam facilis, suscipit necessitatibus aliquid nisi pariatur ab ipsa?
+            Expedita suscipit neque rem temporibus optio distinctio beatae. Dolorem
+            laboriosam accusamus ad ut tempora cum dicta fugiat incidunt consequatur velit
+            provident, quae libero autem veritatis, culpa rerum quaerat. Dolor, repellat?</p>
+        <button @click="changeAll">CHANGE BASE
+        </button>
+        <button @click="reset">RESET
+        </button>
+        <button @click="ajoute">INCREMENT
+        </button>
+        <button @click="changeVal">CHANGE VAL
+        </button>
+        <!-- <button @click="multiplie">Multiplie</button> -->
+        <!-- <button @click="reset">RESET</button> -->
         <!-- <p>{{points}}</p> -->
         <!-- <p>{{ nom }}</p> -->
-        <p> le compteur depuis son state   : {{ count }}</p>
-        <p> le compteur depuis getters   : {{ compteur }}</p>
-        <!-- <p> compteur x  2 : {{ total }}</p> -->
-        <!-- <p> texte : {{ texte }}</p> -->
-        <!-- <p>Le nom : {{ nom }}</p> -->
-        <!-- <p>Le om complet : {{ nomcomplet }}</p> -->
-        <!-- <p>Le nom tronqué : {{ nomCourt }}</p> -->
-        <!-- <p>{{datax2}}</p> -->
-        <!-- <p>Le module compteur :{{ compteur/count}}</p> -->
+        <p>
+            le compteur depuis son state :
+            {{ count }}</p>
+        <p>
+            le compteur depuis getters :
+            {{ compteur }}</p>
+        <p>
+            Double compteur :
+            {{ doubleCompteur }}</p>
+        <p>mlanges :
+            {{melanges}}</p>
+        <p>valeur :
+            {{ val }}</p>
 
-        <span class="uk-margin-small-right" uk-icon="check"></span>
-
-<a href="" uk-icon="heart"></a>
-
-        <div class="uk-inline">
-            <button type="button">Un bouton drop</button>
-        <div uk-drop="mode: hover">Autre ererteteter Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio aperiam delectus, ad repudiandae molestiae nemo necessitatibus odio iste quos exercitationem praesentium explicabo corporis aliquam labore minima suscipit consectetur. Quia, at!</div>
-</div>
     </div>
+</div>
 </template>
 
 <script>
@@ -52,16 +65,34 @@
             },
             // recuperation des states via les getters
             ...mapGetters ({
-                compteur :'compteur/get'
+                compteur :'compteur/get',
+                val : 'getValeur',
+                doubleCompteur :'compteur/mutiply',
+                melanges : 'compteur/getTotal'
                 // valeurCompteur : 'compteur/get',
                 // total : 'compteur/countdouble',
 
             }),
         },
         methods: {
+            /**
+             * Pour les mutations simples ne nescessitant pas 
+             * de passage de params
+             */
             ...mapMutations({
-                changeAll : 'compteur/add'
-            })
+                reset : 'compteur/RESET',
+                changeVal : 'CHANGE_VALEUR'
+            }),
+            /**
+             * pour les mutations paramètrées 
+             */
+            changeAll() {
+                this.value = 1
+                this.$store.commit('compteur/ADD', this.value)
+            },
+            ajoute() {
+                this.$store.commit('compteur/INCREMENT')
+            }
   
         },
 }
